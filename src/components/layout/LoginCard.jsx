@@ -1,18 +1,23 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 
-export default function LoginCard() {
+export default function LoginCard({ onLogin }) {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // handle sign in
+    // yaha apna validation / API call daal sakta hai
+    onLogin();
+    navigate("/", { replace: true });
   };
 
   return (
-    <div  className="
+    <div
+      className="
           relative
           z-20
           w-full
@@ -25,7 +30,8 @@ export default function LoginCard() {
           px-10
           pt-8
           pb-10
-        ">
+        "
+    >
       <h2 className="text-2xl font-semibold text-white">Welcome back</h2>
       <p className="mt-1 text-sm text-white/50">
         Sign in to access your digital workspace
@@ -86,15 +92,7 @@ export default function LoginCard() {
           </div>
         </div>
 
-        {/* <button
-          type="submit"
-          className="w-full rounded-lg bg-[#1D4ED8] py-2.5 text-sm font-semibold 
-          text-white transition-colors hover:bg-primary-hover active:bg-primary-active"
-        >
-          Sign In
-        </button>  */}
-
-          <button
+        <button
           type="submit"
           className="relative w-full overflow-hidden rounded-lg bg-primary py-2.5 text-sm
            font-semibold text-white shadow-[0_0_20px_rgba(59,130,246,0.5)] transition-all hover:bg-primary-hover
@@ -106,16 +104,6 @@ export default function LoginCard() {
           />
           Sign In
         </button>
-       
-
-        {/* <button
-          type="submit"
-          className="w-full rounded-lg py-2.5 text-sm font-semibold text-white transition-all 
-          bg-gradient-to-r from-[#3B82F6] to-[#1D4ED8] bg-[length:200%_100%] bg-left
-          hover:bg-right active:scale-[0.98]"
-        >
-          Sign In
-        </button> */}
       </form>
     </div>
   );

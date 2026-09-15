@@ -1,8 +1,8 @@
 import { Menu, Search, ChevronDown } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
-import ProfileCard from "../components/layout/ProfileCard.jsx";
+import ProfileCard from "../components/layout/ProfileCard";
 
-export default function Navbar() {
+export default function Navbar({ onToggle, onLogout }) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
@@ -17,9 +17,9 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="flex items-center justify-between border-b border-slate-200 bg-white px-5 py-3">
+    <header className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 bg-white px-5 py-3">
       <div className="flex flex-1 items-center gap-4">
-        <button className="text-slate-500 hover:text-slate-800">
+        <button onClick={onToggle} className="text-slate-500 hover:text-slate-800">
           <Menu className="h-5 w-5" />
         </button>
 
@@ -41,7 +41,7 @@ export default function Navbar() {
               General Manager IT
             </span>
           </p>
-          <p className="font-semibold text-danger">ROLE: ADMIN</p>
+          <p className="font-semibold text-primary">ROLE: ADMIN</p>
         </div>
 
         <div className="relative" ref={ref}>
@@ -67,7 +67,7 @@ export default function Navbar() {
 
           {open && (
             <div className="absolute right-0 top-full z-20 mt-2">
-              <ProfileCard onClose={() => setOpen(false)} />
+              <ProfileCard onClose={() => setOpen(false)} onLogout={onLogout} />
             </div>
           )}
         </div>

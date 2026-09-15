@@ -1,7 +1,7 @@
 import LoginCard from "../../components/layout/LoginCard.jsx";
 import globalconfig from "../../config/globalconfig.tsx";
 
-export default function Login() {
+export default function Login({ onLogin }) {
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-[#0a0e1a]">
       {/* Background image — replace src with your own asset */}
@@ -24,7 +24,7 @@ export default function Login() {
 
       {/* Card */}
       <div className="relative z-10 flex min-h-[calc(100vh-88px)] items-center justify-center px-4">
-        <LoginCard />
+        <LoginCard onLogin={onLogin} />
       </div>
     </div>
   );

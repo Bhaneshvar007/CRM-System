@@ -1,17 +1,26 @@
- import Login from './pages/Login/Login.jsx'
- import Sidebar from './layouts/Sidebar.jsx'
- import Navbar from './layouts/Navbar.jsx'
+import { useState } from "react";
+import AppRoutes from "./routes/AppRoutes.jsx";
 
-const App = () => {
+export default function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    () => localStorage.getItem("isLoggedIn") === "true"
+  );
+
+  const handleLogin = () => {
+    localStorage.setItem("isLoggedIn", "true");
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    setIsLoggedIn(false);
+  };
 
   return (
-     <div>
-        {/* <Login/> */}
-
-        <Navbar/>
-        <Sidebar/>
-     </div>
+    <AppRoutes
+      isLoggedIn={isLoggedIn}
+      onLogin={handleLogin}
+      onLogout={handleLogout}
+    />
   );
 }
-
-export default App
