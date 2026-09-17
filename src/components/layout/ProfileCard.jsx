@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const menuItems = [
   { label: "View Profile", icon: User, route: "/profile" },
-  { label: "Settings", icon: Settings, route: "/settings" },
+  { label: "Settings", icon: Settings, route: "/SettingsGrid" },
   { label: "Change Password", icon: Lock, route: "/change-password" },
 ];
 

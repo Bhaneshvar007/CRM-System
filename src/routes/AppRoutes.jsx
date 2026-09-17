@@ -4,6 +4,9 @@ import Layout from "../layouts/Layout.jsx";
 import Login from "../pages/Login/Login.jsx";
 import Overview from "../pages/Overview/HomePage.jsx";
 import MyProfileForm from "../pages/settings/Profile/MyProfileForm.jsx";
+import SettingsGrid from "../pages/settings/GridView/SettingsGrid.jsx";
+import UserManagement from "../pages/settings/UserManagement/UserManagementTable.jsx";
+import UserCreationForm from "../pages/settings/UserManagement/UserCreationForm.jsx";
 
 export default function AppRoutes({ isLoggedIn, onLogin, onLogout }) {
   return (
@@ -31,6 +34,9 @@ export default function AppRoutes({ isLoggedIn, onLogin, onLogout }) {
         <Route path="/" element={<Overview />} />
         <Route path="/profile" element={<MyProfileForm />} />
         <Route path="/settings" element={<MyProfileForm />} />
+        <Route path="/SettingsGrid" element={<SettingsGrid />} />
+        <Route path="/UserManagement" element={<UserManagement />} />
+        <Route path="/UserCreationForm" element={<UserCreationForm />} />
          
       </Route>
 
