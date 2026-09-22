@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowLeft, Search, Plus, SquarePen, Trash2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const initialTemplates = [
   {
@@ -49,16 +50,15 @@ export default function EmailTemplateListTable({ onAddTemplate, onBack, onEdit }
   );
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white">
+    <div className="rounded-xl border border-slate-200 bg-white px-3">
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4">
         <div className="flex items-center gap-3">
-          <button
-            onClick={onBack}
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-50"
-          >
-            <ArrowLeft className="h-4 w-4" />
-          </button>
+          <Link to="/settings">
+            <button className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-50">
+              <ArrowLeft className="h-4 w-4" />
+            </button>
+          </Link>
           <h2 className="text-lg font-bold text-slate-900">Email Template</h2>
         </div>
 
@@ -73,12 +73,11 @@ export default function EmailTemplateListTable({ onAddTemplate, onBack, onEdit }
               className="w-56 rounded-lg border border-slate-300 py-2 pl-9 pr-3 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary"
             />
           </div>
-          <button
-            onClick={onAddTemplate}
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white hover:bg-primary-hover"
-          >
-            <Plus className="h-5 w-5" />
-          </button>
+          <Link to="/settings/email-template/add-email-template">
+            <button className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white hover:bg-primary-hover">
+              <Plus className="h-5 w-5" />
+            </button>
+          </Link>
         </div>
       </div>
 

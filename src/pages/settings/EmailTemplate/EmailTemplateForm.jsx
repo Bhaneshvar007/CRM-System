@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  ArrowLeft,
   X,
   ChevronDown,
   Bold,
@@ -9,10 +10,12 @@ import {
   ListOrdered,
   List,
   AlignLeft,
-  Link,
   Image as ImageIcon,
   Eraser,
 } from "lucide-react";
+import { Link } from "react-router-dom";
+
+
 
 const inputFieldClass =
   "w-full rounded-lg border border-slate-300 bg-white py-2.5 px-3 text-sm text-slate-700 placeholder-slate-400 outline-none focus:border-primary focus:ring-1 focus:ring-primary";
@@ -53,7 +56,7 @@ function ClearableSelect({ value, onChange, options, placeholder }) {
 
 const toolbarIcons = [Bold, Italic, Underline, Strikethrough];
 const toolbarIcons2 = [ListOrdered, List];
-const toolbarIcons3 = [AlignLeft, Link, ImageIcon, Eraser];
+const toolbarIcons3 = [AlignLeft, ImageIcon, Eraser];
 
 export default function EmailTemplateForm({ onSubmit, onCancel }) {
   const [templateType, setTemplateType] = useState("");
@@ -66,9 +69,14 @@ export default function EmailTemplateForm({ onSubmit, onCancel }) {
 
   return (
     <div className="rounded-xl border border-slate-200 bg-white p-6">
-      <h2 className="mb-6 text-2xl font-bold uppercase tracking-wide text-slate-900">
-        Add Template
-      </h2>
+      <div className="flex items-center gap-3 pb-5">
+        <Link to="/settings/email-template/list">
+          <button className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-50">
+            <ArrowLeft className="h-4 w-4" />
+          </button>
+        </Link>
+        <h2 className="text-lg font-bold text-slate-900">Add Template</h2>
+      </div>
 
       {/* Template Type / Template Category */}
       <div className="mb-5 grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -171,12 +179,14 @@ export default function EmailTemplateForm({ onSubmit, onCancel }) {
 
       {/* Actions */}
       <div className="flex items-center gap-3 border-t border-slate-100 pt-5">
-        <button
-          onClick={onCancel}
-          className="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-50"
-        >
-          Cancel
-        </button>
+        <Link to="/settings/email-template/list">
+          <button
+            onClick={onCancel}
+            className="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-50"
+          >
+            Cancel
+          </button>
+        </Link>
         <button
           onClick={() =>
             onSubmit?.({ templateType, templateCategory, templateName, subject, description })
@@ -186,6 +196,6 @@ export default function EmailTemplateForm({ onSubmit, onCancel }) {
           Submit
         </button>
       </div>
-    </div>
+    </div >
   );
 }

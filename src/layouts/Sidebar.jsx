@@ -32,11 +32,11 @@ export default function Sidebar({ collapsed }) {
           }`}
         >
           <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-primary text-sm font-bold text-white">
-            T
+            CS
           </div>
           {!collapsed && (
             <span className="whitespace-nowrap text-base font-semibold text-slate-900">
-              TechNova
+              Cylsys CRM
             </span>
           )}
         </div>

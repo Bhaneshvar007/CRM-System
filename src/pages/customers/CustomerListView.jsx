@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { ArrowLeft, Search, Plus, SquarePen, Trash2, Filter } from "lucide-react";
+import { Link } from "react-router-dom";
+
+
 
 const initialCustomers = [
   {
@@ -71,12 +74,13 @@ export default function CustomerListView({ onAddCustomer, onBack, onEdit }) {
       {/* Header */}
       <div className="flex flex-wrap items-center justify-between gap-3 px-5 py-4">
         <div className="flex items-center gap-3">
-          <button
-            onClick={onBack}
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-50"
-          >
-            <ArrowLeft className="h-4 w-4" />
-          </button>
+          <Link to="/customers" className="text-xs font-semibold text-primary hover:underline">
+            <button
+              className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-300 text-slate-600 hover:bg-slate-50"
+            >
+              <ArrowLeft className="h-4 w-4" />
+            </button>
+          </Link>
           <h2 className="text-lg font-bold text-slate-900">Customer Management</h2>
         </div>
 
@@ -91,12 +95,14 @@ export default function CustomerListView({ onAddCustomer, onBack, onEdit }) {
               className="w-60 rounded-lg border border-slate-300 py-2 pl-9 pr-3 text-sm outline-none focus:border-primary focus:ring-1 focus:ring-primary"
             />
           </div>
-          <button
-            onClick={onAddCustomer}
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white hover:bg-primary-hover"
-          >
-            <Plus className="h-5 w-5" />
-          </button>
+          <Link to="/customers/add-customer" className="text-xs font-semibold text-primary hover:underline">
+            <button
+              onClick={onAddCustomer}
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white hover:bg-primary-hover"
+            >
+              <Plus className="h-5 w-5" />
+            </button>
+          </Link>
         </div>
       </div>
 

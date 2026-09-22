@@ -1,22 +1,28 @@
 import {
   Users,
   Layers,
-  FileText,
   Boxes,
+  FileText,
+  Network,
   Unlock,
   ChevronDownCircle,
   Mail,
+  Building2,
+  Contact,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const settingsItems = [
   { label: "User Management", icon: Users, route: "/settings/user-management/list" },
   { label: "Roles Management", icon: Layers, route: "/settings/role-management/list" },
-  { label: "Form Module", icon: FileText, route: "/settings/form-module/list" },
   { label: "Module", icon: Boxes, route: "/settings/module/list" },
+  { label: "Form Module", icon: FileText, route: "/settings/form-module/list" },
+  { label: "Roles Menu Mapping", icon: Network, route: "/settings/role-menu-mapping/list" },
   { label: "Change Password", icon: Unlock, route: "/settings/change-password" },
   { label: "Drop Down Master", icon: ChevronDownCircle, route: "/settings/dropdown-master/list" },
   { label: "Email Template", icon: Mail, route: "/settings/email-template/list" },
+  { label: "Customer Master", icon: Building2, route: "/customers" },
+  { label: "Contact Person", icon: Contact, route: "/contact-person/list" },
 ];
 export default function SettingsGrid() {
   const navigate = useNavigate();

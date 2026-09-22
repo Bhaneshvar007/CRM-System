@@ -24,9 +24,9 @@ export default function DropdownMasterListTable({ onAddMaster, onBack, onEdit })
     );
 
     return (
-        <div className="rounded-xl border border-slate-200 bg-white">
+        <div className="rounded-xl border border-slate-200 bg-white ">
             {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4">
+            <div className="flex items-center justify-between px-5 py-4 ">
                 <div className="flex items-center gap-3">
                     <Link to="/settings">
                         <button
